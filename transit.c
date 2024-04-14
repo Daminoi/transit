@@ -138,10 +138,7 @@ void* train_simulator(){
         Se un binario è libero e il logger ha scritto l'ultimo cambiamento, il treno occupa un binario.
     */
 
-    /* 
-        Non è necessaria la sincronizzazione perchè la variabile globale rails viene modificata solo dal thread main.
-        Inoltre la modifica avviene solo prima di avviare una simulazione. 
-    */
+    /* Non è necessaria la sincronizzazione con un mutex perchè so che transit_time non sarà modificato mentre ci sono thread-treni in esecuzione */
     ms_to_timespec(transit_time * 2, &cond_wait_timeout_time);
 
     int my_rail = -1;
