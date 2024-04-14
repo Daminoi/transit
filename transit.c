@@ -322,6 +322,7 @@ int main(int argc, char* argv[]){
     }
     if(trains_to_simulate <= 0){
         printf("Errore: numero di treni da simulare non corretto (numTrains > 0)\n");
+        return -1;
     }
 
     train_interval_variation = max_train_interval - min_train_interval;
@@ -378,9 +379,9 @@ int main(int argc, char* argv[]){
     if(trains_to_create > 0){
         printf("Thread principale: non sono stati creati tutti i treni.\n");
     }
+
     
     int fine_simulazione = 0;
-
 
     while(!fine_simulazione){
         ms_sleep(transit_time);
